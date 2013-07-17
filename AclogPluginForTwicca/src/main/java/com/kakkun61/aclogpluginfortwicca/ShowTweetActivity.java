@@ -23,17 +23,18 @@ public class ShowTweetActivity extends Activity {
     private TextView text;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.show_tweet);
         text = (TextView) findViewById(R.id.text);
+        Log.d("aclog", savedInstanceState.toString());
         new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(Void... voids) {
                 try {
                     AndroidHttpClient httpClient = AndroidHttpClient.newInstance("");
-                    HttpGet get = new HttpGet("http://aclog.koba789.com/api/tweets/show.json?id=343301067234242560");
+                    HttpGet get = new HttpGet("http://aclog.koba789.com/api/tweets/show.json?id=" + savedInstanceState.getString("id"));
                     HttpResponse response = httpClient.execute(get);
                     return new BufferedReader(new InputStreamReader(response.getEntity().getContent())).readLine();
                 } catch (IOException e) {
