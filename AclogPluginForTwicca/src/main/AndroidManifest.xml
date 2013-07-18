@@ -9,17 +9,26 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="17" />
 
-    <uses-permission
-        android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
         <activity
-            android:name=".ShowTweetActivity"
+            android:name="com.kakkun61.aclogpluginfortwicca.ShowTweetActivity"
             android:label="@string/open_aclog" >
+            <intent-filter>
+                <action android:name="jp.r246.twicca.ACTION_SHOW_TWEET" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.kakkun61.aclogpluginfortwicca.UserActivity"
+            android:label="@string/aclog_user" >
             <intent-filter>
                 <action android:name="jp.r246.twicca.ACTION_SHOW_TWEET" />
                 <category android:name="android.intent.category.DEFAULT" />

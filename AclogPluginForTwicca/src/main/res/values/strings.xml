@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Aclog Plugin for twicca</string>
-
     <string name="open_aclog">Open Aclog</string>
+    <string name="aclog_user">Aclog User</string>
+
 </resources>
